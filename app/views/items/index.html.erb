@@ -8,6 +8,9 @@
 	  	<td><%= item.description%></td>
 	  	<td><%= item.ends_on %></td>
 	  	<td><%= link_to 'Edit', edit_item_path(item) %></td>
+	  	<td><%= link_to 'Delete', item_path(item),
+	  	        method: :delete,
+	  	        data: { confirm: 'Are you sure?' } %></td>
 	  </tr>
 	<% end %>
 </table>
