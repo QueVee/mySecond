@@ -1,0 +1,25 @@
+<h1>Add an Item</h1>
+
+<%= form_for @item do |f| %>
+
+  <p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+  </p>
+	<br/>
+	<p>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+  </p>
+	<br/>
+  </p>
+	<%= f.label :ends_on, 'Due date' %>
+	<%= f.date_field :ends_on %>
+  </p>
+	<br/>
+	<p>
+	<%= f.submit 'Add item' %>
+  </p>
+<% end %>
+
+<% link_to 'Back', items_path %>
