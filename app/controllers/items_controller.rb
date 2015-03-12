@@ -13,10 +13,18 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		@item = Item.create(params.require(:item).permit(:name, :description, :ends_on))
+		@item = Item.create(article_params)
 
-		@item.save
-		redirect_to items_path
+		if @item.save
+		  redirect_to items_path
+		else
+			render 'new'
+		end
+	end
+
+	private
+	  def article_params
+		params.require(:item).permit(:name, :description, :ends_on)
 	end
 
 end
