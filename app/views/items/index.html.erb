@@ -7,6 +7,7 @@
 	  	<td><%= link_to item.name, item %></td>
 	  	<td><%= item.description%></td>
 	  	<td><%= item.ends_on %></td>
+	  	<td><%= link_to 'Edit', edit_item_path(item) %></td>
 	  </tr>
 	<% end %>
 </table>

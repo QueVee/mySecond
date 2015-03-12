@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		@item = Item.create(article_params)
+		@item = Item.create(item_params)
 
 		if @item.save
 		  redirect_to items_path
@@ -22,8 +22,23 @@ class ItemsController < ApplicationController
 		end
 	end
 
+	def edit
+		@item = Item.find(params[:id])
+	end
+
+	def update
+		@item = Item.find(params[:id])
+
+		if @item.update(item_params)
+		  redirect_to @item
+		else
+			render 'edit'
+		end
+	end
+
 	private
-	  def article_params
+
+	  def item_params
 		params.require(:item).permit(:name, :description, :ends_on)
 	end
 
