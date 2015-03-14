@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   	@user = User.create(user_params)
 
   	if @user.valid?
-  		redirect_to items_path, notice: "You have signed up successfully!"
+  		redirect_to @user, notice: "You have signed up successfully!"
   	else
   		render 'new'
   	end
