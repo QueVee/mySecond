@@ -1,0 +1,38 @@
+
+<%= form_for @item do |f| %>
+	
+	<% if @item.errors.any? %>
+	  <div id="error_explanation">
+	  	<h2>
+	  		<%= pluralize(@item.errors.count, "error") %>
+prohibited
+        this item from being saved:
+       </h2>
+       <ul>
+         <% @item.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+       </ul>
+    </div>
+  <% end %>
+
+  <p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+  </p>
+	<br/>
+	<p>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+  </p>
+	<br/>
+  </p>
+	<%= f.label :ends_on, 'Due date' %>
+	<%= f.date_field :ends_on %>
+  </p>
+	<br/>
+	<p>
+	<%= f.submit %>  |  <%= link_to 'Cancel', items_path %>  
+  </p>
+<% end %>
+
