@@ -14,12 +14,12 @@ Rails.application.routes.draw do
    get 'items/index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  resources :users
   get 'users/new'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
-  get 'login' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  resources :users
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
