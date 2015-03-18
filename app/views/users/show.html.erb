@@ -2,9 +2,9 @@
   <div class-"notice"><%= flash[:notice] %></div>
 <% end %>
 
-<h2><%= "Welcome to your profile page on the mySecond app #{@user.name}!" %></h2>
-<p> Name:  <%= @user.name %></p> 
-<p> Email: <%= @user.email %> </p>
+<h2><%= "Welcome to your profile page on the mySecond app #{current_user.name}!" %></h2>
+<p> Name:  <%= current_user.name %></p> 
+<p> Email: <%= current_user.email %> </p>
 
 <%= link_to 'Update profile', edit_user_url %> | <%= link_to 'myList', items_url %>
 

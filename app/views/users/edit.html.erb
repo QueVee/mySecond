@@ -6,8 +6,7 @@
 	  <div id="error_explanation">
 	  	<h2>
 	  		<%= pluralize(@user.errors.count, "error") %>
-prohibited
-        this user from being saved:
+        prohibited this user from being saved:
        </h2>
        <ul>
          <% @user.errors.full_messages.each do |msg| %>
@@ -21,12 +20,18 @@ prohibited
 	<%= f.label :name %>
 	<%= f.text_field :name %>
   </p>
-	<br/>
 	<p>
 	<%= f.label :email %>
 	<%= f.text_field :email %>
   </p>
-	<br/>
+  <p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  </p>
+  <p>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  </p>
   
 	<p>
   <%= f.submit 'Save changes' %> | <%= link_to 'Cancel', @user %>

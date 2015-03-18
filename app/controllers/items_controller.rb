@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
-
+ 
   http_basic_authenticate_with name: "me", password: "secret",
 except: [:index, :show]
 
 	def index
-		@items = Item.all
+		@items = current_user.items.all
 	end
 
 	def show
-		@item = Item.find(params[:id])
+		@item = current_user.items.find(params[:id])
 	end
 
 	def new
@@ -16,8 +16,7 @@ except: [:index, :show]
 	end
 
 	def create
-		@item = Item.create(item_params)
-
+		@item = current_user.items.create(item_params)
 		if @item.save
 		  redirect_to items_path
 		else
@@ -47,7 +46,7 @@ except: [:index, :show]
 
 	private
 
-	  def item_params
+	def item_params
 		params.require(:item).permit(:name, :description, :ends_on)
 	end
 
