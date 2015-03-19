@@ -8,12 +8,13 @@ class UsersController < ApplicationController
   def create
   	@user = User.create(user_params)
 
-  	if @user.valid?
+  	if @user.save
+      UserMailer.welcome_email(@user).deliver_later
       log_in @user
   		redirect_to @user, notice: "You have signed up successfully!"
   	else
   		render 'new'
-  	end
+    end
   end
 
   def show
@@ -39,6 +40,5 @@ class UsersController < ApplicationController
     def user_params
     	params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-
 
 end
