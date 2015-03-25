@@ -3,9 +3,17 @@ class UserMailer < ApplicationMailer
 
 	def welcome_email(user)
 		@user = user
-		@url  = 'http://mySecond.com/login'
 		mail(to: @user.email, subject: 'Welcome to the mySecond App.',
 													template_path: 'user_mailer',
 													template_name: 'welcome_email')
+	end
+
+	def invite(second_name, second_email, invite_token)
+		@second_name = second_name
+		@second_email = second_email 
+		@invite_token = invite_token
+		mail(to: @second.email, subject: 'Invitation to be mySecond.'
+														template_path: 'user_mailer'
+														template_name: 'invite_email')
 	end
 end

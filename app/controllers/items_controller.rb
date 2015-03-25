@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   http_basic_authenticate_with name: "me", password: "secret",
 except: [:index, :show]
 
+  before_action :logged_in_user, only: [:show]
+
 	def index
 		@items = current_user.items.all
 	end
@@ -18,6 +20,7 @@ except: [:index, :show]
 	def create
 		@item = current_user.items.create(item_params)
 		if @item.save
+		  flash[:success] = "Item created!"
 		  redirect_to items_path
 		else
 			render 'new'

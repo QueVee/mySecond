@@ -1,10 +1,40 @@
-<% if flash[:notice] %>
-  <div class-"notice"><%= flash[:notice] %></div>
-<% end %>
+<% provide(:title, 'Profile page') %>
+<div class="col-md-8 col-md-offset-2">
+  <h2><%= "This is your profile page #{current_user.name}!" %></h2>
+  <thead>
+  	<tr>
+  		<th> Name:  <strong><%= current_user.name %></strong></th><br /> 
+			<th> Email: <strong><%= current_user.email %></strong></th><br /><br />
+			<th><%= link_to 'Update profile', edit_user_url %> | <%= link_to 'myList', items_url %></th>
+		</tr>
+	</thead>
+	<br />
+	<br />
+	<h3>mySecond activation list</h3>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Status</th>
+				  </tr>
+				</thead>
+				<tbody>
+					
+						<tr>
+							<td><%= User.new.name %></td>
+							<td><%= User.new.email %></td>
+						  <td></td>
+						</tr>
+					
+				</tbody>
+			</table>
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>
 
-<h2><%= "This is your profile page on the mySecond app #{current_user.name}!" %></h2>
-<p> Name:  <%= current_user.name %></p> 
-<p> Email: <%= current_user.email %> </p>
 
-<%= link_to 'Update profile', edit_user_url %> | <%= link_to 'myList', items_url %>
 

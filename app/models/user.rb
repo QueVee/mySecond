@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :items, dependent: :destroy
+	has_one :second, class_name: "User",
+									 foreign_key: "user_id"
+									 dependent: :destroy
 	before_save { self.email = email.downcase }
 	validates :name, presence: true, length: {maximum: 20}
 	validates :email, uniqueness: true, presence: true, length: {maximum: 50}

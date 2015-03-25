@@ -4,13 +4,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hello <%= @user.name %>.</h1>
+    <h1>Hello <%= @second_name %>.</h1>
     <p>
-      Please be mySecond on example.com.<br>
+      Please be mySecond on BmySecond.com.<br>
     </p>
     <p>
-      To accecpt this request, just follow this link: <%= @url %>.
+      To accecpt my request, signin or signup at the Welcome page after clicking this link: <%= link_to "Accept", root_url(invite_token: @invite_token) %>  
     </p>
-    <p>Thanks and have a great day!</p>
+    <p>
+      Thanks and have a great day!
+    </p>
+    <p>
+      
+    </p>
+
   </body>
 </html>
