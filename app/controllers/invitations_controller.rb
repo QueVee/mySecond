@@ -7,14 +7,8 @@ class InvitationsController < ApplicationController
 	end
 
 	def accept
-		@accept = second
-		.find_by_token!(params[:invite_token])
-
-    if result.success?
-      redirect_to @current_user, notice: "Good!"
-    else
-      redirect_to root_url, alert: "Bad!"
-    end
+		@accept = params[:invite_token]
+		
   end
 	
 	private

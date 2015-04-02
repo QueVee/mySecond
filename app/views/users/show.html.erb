@@ -1,15 +1,34 @@
 <% provide(:title, 'Profile page') %>
 <div class="col-md-8 col-md-offset-2">
   <h2><%= "This is your profile page #{current_user.name}!" %></h2>
-  <thead>
-  	<tr>
-  		<th> Name:  <strong><%= current_user.name %></strong></th><br /> 
-			<th> Email: <strong><%= current_user.email %></strong></th><br /><br />
-			<th><%= link_to 'Update profile', edit_user_url %> | <%= link_to 'myList', items_url %></th>
-		</tr>
-	</thead>
+  <div class="row">
+  	<div class="col-md-12">
+  	</div>
+	<div>
+	  <aside class="col-md-8">
+	  <thead>
+	  	<tr>
+	  		<th> Name:  <strong><%= current_user.name %></strong></th><br /> 
+				<th> Email: <strong><%= current_user.email %></strong></th><br /><br />
+				<th><%= link_to 'Update profile', edit_user_path %> | <%= 
+							link_to 'myList', items_path %></th>
+			</tr>
+		</thead>
+	</div>
+  	<div>
+  	<div class="col-md-4">
+  		<% if :accept? %>
+  		  <%= button_to "Accept the mySecond invite.", accept_path, class: "btn btn-success" %>
+				<% else %>
+				  redirect_to root_url, alert: "Nope!"
+			<% end %>
+  	</div>
+  </div>
+</div>
 	<br />
 	<br />
+</table>
+  
 	<h4>mySecond activation list</h4>
 	<div class="panel panel-default">
 		<div class="panel-body">
@@ -24,8 +43,8 @@
 				<tbody>
 					
 						<tr>
-							<td><%= User.new.name %></td>
-							<td><%= User.new.email %></td>
+							<td><%=  %></td>
+							<td><%=  %></td>
 						  <td></td>
 						</tr>
 					
