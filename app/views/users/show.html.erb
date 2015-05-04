@@ -10,15 +10,17 @@
 	  	<tr>
 	  		<th> Name:  <strong><%= current_user.name %></strong></th><br /> 
 				<th> Email: <strong><%= current_user.email %></strong></th><br /><br />
-				<th><%= link_to 'Update profile', edit_user_path %> | <%= 
-							link_to 'myList', items_path %></th>
+				<th>
+					<%= link_to 'Update profile', edit_user_path %> | 
+					<%= link_to 'myList', items_path %></th>
 			</tr>
 		</thead>
 	</div>
   	<div>
   	<div class="col-md-4">
   		<% if :accept? %>
-  		  <%= button_to "Accept the mySecond invite.", accept_path, class: "btn btn-success" %>
+  		  <%= button_to "Accept invite.", accept_path,
+  		  		class: "btn btn-success" %>
 				<% else %>
 				  redirect_to root_url, alert: "Nope!"
 			<% end %>

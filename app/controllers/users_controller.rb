@@ -22,8 +22,6 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @second = @user.second
-    @items = @user.items
   end
 
   def edit

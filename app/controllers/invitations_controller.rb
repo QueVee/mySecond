@@ -8,11 +8,10 @@ class InvitationsController < ApplicationController
 
 	def accept
 		@accept = params[:invite_token]
-		
   end
 	
 	private
-
+ 
 	def user_params
 		params.require(:user).permit(:name, :email)
 	end

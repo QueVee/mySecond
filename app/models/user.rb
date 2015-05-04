@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 	validates :password, length: {minimum: 6}, allow_blank: true
-
+  
 	def create_invite_token
 		self.invite_token = BCrypt::Password.create("token")
 	end
