@@ -19,7 +19,7 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       <br />
-      <%= f.submit 'Save changes' %> | <%= button_to 'Cancel', @user %>
+      <%= f.submit 'Save changes', class: "btn btn-link" %> | <%= button_to 'Cancel', @user, class: "btn btn-link" %>
      
     <% end %>
   </div>

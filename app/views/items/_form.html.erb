@@ -2,6 +2,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+  	
 		<%= form_for @item do |f| %>
       <%= render 'shared/error_item_messages' %>
 
@@ -14,7 +15,7 @@
 			<%= f.label :ends_on, 'Due date' %>
 			<%= f.date_field :ends_on, class: 'form-control' %>
 		  <br />
-			<%= f.submit %>  |  <%= link_to 'Cancel', items_path %>  
+			<%= f.submit 'Update Item', class: "btn btn-link" %> | <%= button_to 'Cancel', @items, class: "btn btn-link" %>  
 		  
 		<% end %>
 	</div>
